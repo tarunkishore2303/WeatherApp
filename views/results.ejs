@@ -1,0 +1,93 @@
+<%- include ("./partials/header") %>
+<% var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %>
+<% var day = new Date(data.forecast.forecastday[2].date) %>
+<h1 class="city display-4"><%=data.location.name%></h1>
+<div class="container">  
+  <div class="card-deck">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.current.condition.icon%>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.current.temp_c %>°C</h4>
+                <p class="card-text">Today</p>                
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="back">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.current.condition.icon%>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.current.temp_f %>°F</h4>
+                <p class="card-text">Today</p>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.forecast.forecastday[0].day.condition.icon %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.forecast.forecastday[0].day.maxtemp_c %>°C</h4>
+                <p class="card-text">Tomorrow</p>                
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="back">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.forecast.forecastday[0].day.condition.icon %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.forecast.forecastday[0].day.maxtemp_f %>°F</h4>
+                <p class="card-text">Tomorrow</p>                
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.forecast.forecastday[1].day.condition.icon %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.forecast.forecastday[2].day.maxtemp_c %>°C</h4>
+                <p class="card-text"><%=days[day.getDay()] %></p>                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="col-md ">
+            <div class="card">
+              <img src="<%=data.forecast.forecastday[1].day.condition.icon %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4 class="card-title"><%=data.forecast.forecastday[2].day.maxtemp_f %>°F</h4>
+                <p class="card-text"><%=days[day.getDay()] %></p>                
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+<%- include ("./partials/footer") %>
